@@ -1,4 +1,4 @@
-# passport-coinbase-oauth20
+# passport-coinbase-oauth2
 
 [![Build](https://img.shields.io/travis/ajainvivek/passport-coinbase-oauth2.svg)](https://travis-ci.org/ajainvivek/passport-coinbase-oauth2)
 [![Coverage](https://img.shields.io/coveralls/ajainvivek/passport-coinbase-oauth2.svg)](https://coveralls.io/r/ajainvivek/passport-coinbase-oauth2)
@@ -8,8 +8,8 @@
 [Passport](http://passportjs.org/) strategy for authenticating with [Coinbase](http://www.coinbase.com/)
 using the OAuth 2.0 API.
 
-This module lets you authenticate using Google in your Node.js applications.
-By plugging into Passport, Google authentication can be easily and
+This module lets you authenticate using Coinbase in your Node.js applications.
+By plugging into Passport, Coinbase authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
@@ -45,9 +45,19 @@ var CoinbaseStrategy = require('passport-coinbase-oauth20').Strategy;
 passport.use(
 	new CoinbaseStrategy(
 		{
-			clientID: COINBASE_CLIENT_ID,
-			clientSecret: COINBASE_CLIENT_SECRET,
-			callbackURL: 'http://www.example.com/auth/coinbase/callback'
+			clientID: '--client-id-here--',
+			clientSecret: '--client-secret-here--',
+			callbackURL: 'http://www.example.com/auth/coinbase/callback',
+			authorizationURL: 'https://coinbase.com/oauth/authorize',
+			tokenURL: 'https://api.coinbase.com/oauth/token',
+			userProfileURL: 'https://api.coinbase.com/v2/user',
+			scope: ['wallet:user:email'],
+			customHeaders: {
+				'CB-ACCESS-SIGN': hash,
+				'CB-ACCESS-TIMESTAMP': moment().unix(),
+				'CB-ACCESS-KEY': '--client-id-here--',
+				'CB-VERSION': '2018-01-31'
+			}
 		},
 		function(accessToken, refreshToken, profile, cb) {
 			User.findOrCreate({ coinbaseId: profile.id }, function(err, user) {
