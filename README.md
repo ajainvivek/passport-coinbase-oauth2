@@ -17,7 +17,7 @@ unobtrusively integrated into any application or framework that supports
 ## Install
 
 ```bash
-$ npm install passport-coinbase-oauth20
+$ npm install passport-coinbase-oauth2
 ```
 
 ## Usage
@@ -47,14 +47,14 @@ passport.use(
 		{
 			clientID: COINBASE_CLIENT_ID,
 			clientSecret: COINBASE_CLIENT_SECRET,
-			callbackURL: 'http://www.example.com/auth/coinbase/callback',
+			callbackURL: 'http://www.example.com/auth/coinbase/callback'
 		},
 		function(accessToken, refreshToken, profile, cb) {
 			User.findOrCreate({ coinbaseId: profile.id }, function(err, user) {
 				return cb(err, user);
 			});
-		},
-	),
+		}
+	)
 );
 ```
 
