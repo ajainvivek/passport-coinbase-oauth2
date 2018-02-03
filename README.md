@@ -24,7 +24,7 @@ $ npm install passport-coinbase-oauth2
 
 #### Create an Application
 
-Before using `passport-coinbase-oauth20`, you must create an account with
+Before using `passport-coinbase-oauth2`, you must create an account with
 Coinbase. Your application will be issued a client ID and client secret, which need to be
 provided to the strategy. You will also need to configure a redirect URI which
 matches the route in your application.
@@ -40,7 +40,7 @@ Coinbase profile. The `verify` callback must call `cb` providing a user to
 complete authentication.
 
 ```javascript
-var CoinbaseStrategy = require('passport-coinbase-oauth20').Strategy;
+var CoinbaseStrategy = require('passport-coinbase-oauth2').Strategy;
 
 passport.use(
 	new CoinbaseStrategy(
