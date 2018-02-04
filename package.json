@@ -1,6 +1,6 @@
 {
 	"name": "passport-coinbase-oauth2",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Coinbase (OAuth 2.0) authentication strategy for Passport.",
 	"keywords": ["passport", "coinbase", "auth", "authn", "authentication", "identity"],
 	"author": {

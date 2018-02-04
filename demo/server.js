@@ -23,7 +23,7 @@ passport.use(
 			scope: ['wallet:user:email'],
 			customHeaders: {
 				'CB-ACCESS-SIGN': hash,
-				'CB-ACCESS-TIMESTAMP': moment().unix(),
+				'CB-ACCESS-TIMESTAMP': Math.round(moment.now() / 1000),
 				'CB-ACCESS-KEY': '--client-id-here--',
 				'CB-VERSION': '2018-01-31'
 			}
